@@ -17,11 +17,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class User {
     @Id
-    private Long userId;
+    private String userId;
 
+    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountId")
-    @MapsId
     private Account account;
 
     private String name;

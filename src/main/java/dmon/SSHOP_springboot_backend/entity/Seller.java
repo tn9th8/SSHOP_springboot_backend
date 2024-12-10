@@ -14,11 +14,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Seller {
     @Id
-    private Long sellerId;
+    private String sellerId;
 
+    @MapsId
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountId")
-    @MapsId
     private Account account;
 
     private String shopName;

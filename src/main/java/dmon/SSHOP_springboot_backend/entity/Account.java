@@ -15,8 +15,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long accountId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String accountId;
 
     @OneToOne(
             mappedBy = "account",

@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -22,5 +24,11 @@ public class AccountService {
         //todo: hash password
         Account account = this.accountRepo.save(this.accountMapper.toEntity(body));
         return this.accountMapper.toResponse(account);
+    }
+
+    public List<Account> listAll() {
+        List<Account> accounts;
+        accounts = this.accountRepo.findAll();
+        return accounts;
     }
 }

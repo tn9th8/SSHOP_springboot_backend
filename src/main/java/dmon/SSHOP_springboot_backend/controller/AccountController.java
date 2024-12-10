@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/account")
@@ -37,15 +38,16 @@ public class AccountController {
 //                .ok()
 //                .body(null);
 //    }
-//
-//    @GetMapping("/list")
-//    @ApiMessage("list all accounts")
-//    public ResponseEntity<ArrayList<ResAccountDto>> listAll() {
+
+    @ApiMessage("list all accounts")
+    @GetMapping("/list")
+    public List<Account> listAll() {
+        return this.accountService.listAll();
 //        return ResponseEntity
 //                .ok()
 //                .body(null);
-//    }
-//
+    }
+
 //    @GetMapping("/{id}")
 //    @ApiMessage("get an account")
 //    public ResponseEntity<ResAccountDto> getOne(@PathVariable("id") String sId)  {

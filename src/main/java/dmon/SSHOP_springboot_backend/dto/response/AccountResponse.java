@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AccountResponse {
-    private Long accountId;
+    private String accountId;
     private String email;
     private String phone;
 }
