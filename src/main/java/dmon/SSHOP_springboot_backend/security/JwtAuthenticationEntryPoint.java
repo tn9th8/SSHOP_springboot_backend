@@ -1,8 +1,8 @@
 package dmon.SSHOP_springboot_backend.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dmon.SSHOP_springboot_backend.exception.ExceptionCode;
-import dmon.SSHOP_springboot_backend.util.api.ApiResponse;
+import dmon.SSHOP_springboot_backend.base.ExceptionCode;
+import dmon.SSHOP_springboot_backend.base.ApiResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,7 +19,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse httpResponse, AuthenticationException authException)
             throws IOException, ServletException {
-        ExceptionCode exceptionCode = ExceptionCode.UNAUTHENTICATED;
+        ExceptionCode exceptionCode = ExceptionCode.SECURITY__UNAUTHENTICATED;
         //define an httpResponse
         httpResponse.setContentType(MediaType.APPLICATION_JSON_VALUE);
         httpResponse.setStatus(exceptionCode.getStatus().value());
