@@ -1,6 +1,6 @@
 package dmon.SSHOP_springboot_backend.dto.response;
 
-import dmon.SSHOP_springboot_backend.util.enumerate.GenderEnum;
+import dmon.SSHOP_springboot_backend.enums.GenderEnum;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

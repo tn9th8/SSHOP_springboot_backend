@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend.service;
+package dmon.SSHOP_springboot_backend.service.impl;
 
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
@@ -6,9 +6,10 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import dmon.SSHOP_springboot_backend.dto.request.AccessRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccessResponse;
 import dmon.SSHOP_springboot_backend.entity.Account;
-import dmon.SSHOP_springboot_backend.exception.AppException;
-import dmon.SSHOP_springboot_backend.exception.ExceptionCode;
+import dmon.SSHOP_springboot_backend.base.AppException;
+import dmon.SSHOP_springboot_backend.base.ExceptionCode;
 import dmon.SSHOP_springboot_backend.repository.IAccountRepository;
+import dmon.SSHOP_springboot_backend.service.IAccessService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -30,13 +31,14 @@ import java.util.StringJoiner;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Slf4j
-public class AccessService {
+public class AccessService implements IAccessService {
     IAccountRepository accountRepo;
 
     @NonFinal
     @Value("${jwt.secretKey}")
     protected  String SECRET_KEY;
 
+    @Override
     public AccessResponse  authenticate(AccessRequest request) {
         Account account = this.accountRepo.findByUsername(request.getUsername())
                 .orElseThrow(() -> new AppException(ExceptionCode.OBJECT_NOT_FOUND, "account"));
@@ -81,7 +83,7 @@ public class AccessService {
         }
     }
 
-    private String buildScope(Set<String> roles){
+    private String buildScope(Set<String> roles) {
         StringJoiner stringJoiner = new StringJoiner(" ");
         if (!CollectionUtils.isEmpty(roles))
             roles.forEach(stringJoiner::add);

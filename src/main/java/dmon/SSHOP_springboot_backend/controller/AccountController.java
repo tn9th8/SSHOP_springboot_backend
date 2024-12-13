@@ -4,7 +4,7 @@ import dmon.SSHOP_springboot_backend.dto.request.AccountCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.request.AccountUpdateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccountResponse;
 import dmon.SSHOP_springboot_backend.entity.Account;
-import dmon.SSHOP_springboot_backend.service.AccountService;
+import dmon.SSHOP_springboot_backend.service.impl.AccountService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,7 @@
-package dmon.SSHOP_springboot_backend.exception;
+package dmon.SSHOP_springboot_backend.base;
 
-import dmon.SSHOP_springboot_backend.util.api.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend.util.api;
+package dmon.SSHOP_springboot_backend.base;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.core.MethodParameter;

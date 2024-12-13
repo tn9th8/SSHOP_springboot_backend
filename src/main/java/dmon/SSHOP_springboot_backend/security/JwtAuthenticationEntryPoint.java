@@ -1,8 +1,8 @@
 package dmon.SSHOP_springboot_backend.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dmon.SSHOP_springboot_backend.exception.ExceptionCode;
-import dmon.SSHOP_springboot_backend.util.api.ApiResponse;
+import dmon.SSHOP_springboot_backend.base.ExceptionCode;
+import dmon.SSHOP_springboot_backend.base.ApiResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

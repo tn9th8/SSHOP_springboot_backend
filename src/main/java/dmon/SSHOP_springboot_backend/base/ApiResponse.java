@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend.util.api;
+package dmon.SSHOP_springboot_backend.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

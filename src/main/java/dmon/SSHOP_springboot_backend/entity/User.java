@@ -1,6 +1,6 @@
 package dmon.SSHOP_springboot_backend.entity;
 
-import dmon.SSHOP_springboot_backend.util.enumerate.GenderEnum;
+import dmon.SSHOP_springboot_backend.enums.GenderEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

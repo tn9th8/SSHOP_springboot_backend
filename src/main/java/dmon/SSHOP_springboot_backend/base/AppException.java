@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend.exception;
+package dmon.SSHOP_springboot_backend.base;
 
 import lombok.Getter;
 import lombok.Setter;

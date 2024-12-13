@@ -2,7 +2,8 @@ package dmon.SSHOP_springboot_backend.controller;
 
 import dmon.SSHOP_springboot_backend.dto.request.AccessRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccessResponse;
-import dmon.SSHOP_springboot_backend.service.AccessService;
+import dmon.SSHOP_springboot_backend.service.IAccessService;
+import dmon.SSHOP_springboot_backend.service.impl.AccessService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AccessController {
-    AccessService accessService;
+    IAccessService accessService;
 
     //SIGN IN//
     @PostMapping("/signin")

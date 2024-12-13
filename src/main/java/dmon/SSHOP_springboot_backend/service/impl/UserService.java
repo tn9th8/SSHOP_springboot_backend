@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend.service;
+package dmon.SSHOP_springboot_backend.service.impl;
 
 import dmon.SSHOP_springboot_backend.dto.request.UserCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.UserResponse;
