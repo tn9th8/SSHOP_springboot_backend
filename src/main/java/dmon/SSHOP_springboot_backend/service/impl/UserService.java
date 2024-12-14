@@ -2,7 +2,7 @@ package dmon.SSHOP_springboot_backend.service.impl;
 
 import dmon.SSHOP_springboot_backend.dto.request.UserCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.UserResponse;
-import dmon.SSHOP_springboot_backend.entity.User;
+import dmon.SSHOP_springboot_backend.entity.account.User;
 import dmon.SSHOP_springboot_backend.mapper.IUserMapper;
 import dmon.SSHOP_springboot_backend.repository.IAccountRepository;
 import dmon.SSHOP_springboot_backend.repository.IUserRepository;

@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Builder
 @Getter
@@ -13,11 +14,11 @@ import java.util.Date;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserResponse {
-    private Long userId;
-    private String name;
-    private String photo;
-    private Date dob;
-    private GenderEnum gender;
+    String id;
+    String name;
+    String photo;
+    Date dob;
+    GenderEnum gender;
 
 
 }

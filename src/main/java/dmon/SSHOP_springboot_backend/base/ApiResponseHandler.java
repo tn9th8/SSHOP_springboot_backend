@@ -36,7 +36,7 @@ public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
             return body;
         //case: swagger
         String path = request.getURI().getPath();
-        if (path.startsWith("/v3/api-docs") || path.startsWith("/swagger-ui"))
+        if (path.startsWith("/sshop/v3/api-docs") || path.startsWith("/sshop/swagger-ui"))
             return body;
         //case: success
         return ApiResponse.builder()

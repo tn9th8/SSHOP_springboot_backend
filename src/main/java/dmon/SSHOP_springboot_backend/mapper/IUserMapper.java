@@ -2,7 +2,7 @@ package dmon.SSHOP_springboot_backend.mapper;
 
 import dmon.SSHOP_springboot_backend.dto.request.UserCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.UserResponse;
-import dmon.SSHOP_springboot_backend.entity.User;
+import dmon.SSHOP_springboot_backend.entity.account.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -3,7 +3,7 @@ package dmon.SSHOP_springboot_backend.service.impl;
 import dmon.SSHOP_springboot_backend.dto.request.AccountCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.request.AccountUpdateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccountResponse;
-import dmon.SSHOP_springboot_backend.entity.Account;
+import dmon.SSHOP_springboot_backend.entity.account.Account;
 import dmon.SSHOP_springboot_backend.base.AppException;
 import dmon.SSHOP_springboot_backend.base.ExceptionCode;
 import dmon.SSHOP_springboot_backend.mapper.IAccountMapper;
@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -57,7 +58,7 @@ public class AccountService {
         //check
         this.findOne(accountId);
         Account account = this.accountMapper.toEntity(body);
-        account.setAccountId(accountId);
+        account.setId(accountId);
         account = this.accountRepo.save(account);
         return this.accountMapper.toResponse(account);
     }

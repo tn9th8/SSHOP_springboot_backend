@@ -3,9 +3,8 @@ package dmon.SSHOP_springboot_backend.mapper;
 import dmon.SSHOP_springboot_backend.dto.request.AccountCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.request.AccountUpdateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccountResponse;
-import dmon.SSHOP_springboot_backend.entity.Account;
+import dmon.SSHOP_springboot_backend.entity.account.Account;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface IAccountMapper {

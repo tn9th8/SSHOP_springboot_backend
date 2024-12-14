@@ -5,7 +5,7 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import dmon.SSHOP_springboot_backend.dto.request.AccessRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccessResponse;
-import dmon.SSHOP_springboot_backend.entity.Account;
+import dmon.SSHOP_springboot_backend.entity.account.Account;
 import dmon.SSHOP_springboot_backend.base.AppException;
 import dmon.SSHOP_springboot_backend.base.ExceptionCode;
 import dmon.SSHOP_springboot_backend.repository.IAccountRepository;
@@ -61,7 +61,7 @@ public class AccessService implements IAccessService {
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
         JWTClaimsSet jwtClaimsSet = new JWTClaimsSet.Builder()
-                .subject(account.getAccountId())
+                .subject(account.getId())
                 .issuer("sshop.dmon.com")
                 .issueTime(new Date())
                 .expirationTime(new Date(

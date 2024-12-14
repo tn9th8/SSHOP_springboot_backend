@@ -3,7 +3,7 @@ package dmon.SSHOP_springboot_backend.controller;
 import dmon.SSHOP_springboot_backend.dto.request.AccountCreateRequest;
 import dmon.SSHOP_springboot_backend.dto.request.AccountUpdateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.AccountResponse;
-import dmon.SSHOP_springboot_backend.entity.Account;
+import dmon.SSHOP_springboot_backend.entity.account.Account;
 import dmon.SSHOP_springboot_backend.service.impl.AccountService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/accounts")
