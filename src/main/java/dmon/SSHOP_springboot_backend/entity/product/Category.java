@@ -3,12 +3,11 @@ package dmon.SSHOP_springboot_backend.entity.product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dmon.SSHOP_springboot_backend.entity.base.BaseEntity;
 import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Table;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.SQLRestriction;
+import org.hibernate.annotations.*;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @Table(name = "categories")
 @DynamicInsert
 @DynamicUpdate
-@SQLDelete(sql = "UPDATE categories SET deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE categories SET deleted = true WHERE category_id = ?")
 @SQLRestriction("deleted = false")
 @Getter
 @Setter
@@ -31,12 +30,19 @@ public class Category extends BaseEntity {
     String id;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch =  FetchType.LAZY, orphanRemoval = true)
-    @ToString.Exclude
-    @JsonIgnore
+    @ToString.Exclude @JsonIgnore
     List<Product> products;
 
-    @Column(length = 40, nullable = false)
+    @OneToOne(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude @JsonIgnore
+    ProductTemplate productTemplate;
+
+    @Column(length = 40, nullable = false, unique = true)
     String name;
 
     String description;
+
+    String photo;
+
+    Integer position;
 }

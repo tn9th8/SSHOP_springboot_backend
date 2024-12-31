@@ -1,7 +1,7 @@
 package dmon.SSHOP_springboot_backend.config;
 
 import dmon.SSHOP_springboot_backend.entity.account.Account;
-import dmon.SSHOP_springboot_backend.repository.account.Seller_IAccountRepository;
+import dmon.SSHOP_springboot_backend._repository.account.Seller_IAccountRepository;
 import dmon.SSHOP_springboot_backend.enums.RoleEnum;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

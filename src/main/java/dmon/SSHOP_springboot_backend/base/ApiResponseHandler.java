@@ -10,6 +10,8 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.Map;
+
 @ControllerAdvice
 public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
@@ -25,14 +27,13 @@ public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
             Class<? extends HttpMessageConverter<?>> selectedConverterType,
             ServerHttpRequest request,
             ServerHttpResponse response) {
-        //get apiStatus
-        HttpServletResponse servletResponse = ((ServletServerHttpResponse) response).getServletResponse();
-        int apiCode = servletResponse.getStatus();
-        //case: throw exception
-        if (apiCode >= 400)
-            return body;
         //case: body is a string
         if (!MediaType.APPLICATION_JSON.equals(selectedContentType))
+            return body;
+        //case: throw exception
+        HttpServletResponse servletResponse = ((ServletServerHttpResponse) response).getServletResponse();
+        int apiCode = servletResponse.getStatus();
+        if (apiCode >= 400)
             return body;
         //case: swagger
         String path = request.getURI().getPath();
@@ -42,7 +43,7 @@ public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
         return ApiResponse.builder()
                 .success(true)
                 .code(1)
-                .data(body)
+                .result(body)
                 .build();
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
 @Table(name = "sellers")
 @DynamicInsert
 @DynamicUpdate
-@SQLDelete(sql = "UPDATE sellers SET deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE sellers SET deleted = true WHERE account_id=?")
 @SQLRestriction("deleted = false")
 @Getter
 @Setter
@@ -35,8 +35,7 @@ public class Seller extends BaseEntity {
     Account account;
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @ToString.Exclude
-    @JsonIgnore
+    @JsonIgnore @ToString.Exclude
     List<Product> products;
 
     String shopName;

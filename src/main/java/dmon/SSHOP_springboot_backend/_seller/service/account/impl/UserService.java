@@ -5,8 +5,8 @@ import dmon.SSHOP_springboot_backend._seller.dto.response.UserResponse;
 import dmon.SSHOP_springboot_backend.entity.account.User;
 
 import dmon.SSHOP_springboot_backend.mapper.account.Seller_IUserMapper;
-import dmon.SSHOP_springboot_backend.repository.account.Seller_IAccountRepository;
-import dmon.SSHOP_springboot_backend.repository.account.Seller_IUserRepository;
+import dmon.SSHOP_springboot_backend._repository.account.Seller_IAccountRepository;
+import dmon.SSHOP_springboot_backend._repository.account.Seller_IUserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

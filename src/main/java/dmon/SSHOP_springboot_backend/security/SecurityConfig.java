@@ -24,6 +24,10 @@ import javax.crypto.spec.SecretKeySpec;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+    private final String[] PUBLIC_GET_ENDPOINTS = {
+            "/api/v1/category/tree",
+            "/test/**"
+    };
     private final String[] PUBLIC_POST_ENDPOINTS = {
             "admin/api/v1/access/login",
             "seller/api/v1/access/login",
@@ -42,6 +46,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request ->
                 request
                         .requestMatchers(PUBLIC_ENDPOINTS).permitAll()
+                        .requestMatchers(HttpMethod.GET, PUBLIC_GET_ENDPOINTS).permitAll()
                         .requestMatchers(HttpMethod.POST, PUBLIC_POST_ENDPOINTS).permitAll()
                         .anyRequest().authenticated()
         );

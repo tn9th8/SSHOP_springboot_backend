@@ -33,15 +33,12 @@ public class BaseEntity {
     @PrePersist
     private void setBeforeCreate() {
         this.createdBy = this.updatedBy = SecurityUtil.getCurrentAccountLogin().isPresent()
-                ? SecurityUtil.getCurrentAccountLogin().get()
-                : null;
+                ? SecurityUtil.getCurrentAccountLogin().get() : null;
     }
 
     @PreUpdate
     public void setBeforeUpdate() {
-        // this.updatedAt = Instant.now();
         this.updatedBy = SecurityUtil.getCurrentAccountLogin().isPresent()
-                ? SecurityUtil.getCurrentAccountLogin().get()
-                : null;
+                ? SecurityUtil.getCurrentAccountLogin().get() : null;
     }
 }

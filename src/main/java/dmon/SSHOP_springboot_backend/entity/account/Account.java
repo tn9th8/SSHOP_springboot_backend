@@ -17,7 +17,7 @@ import java.util.Set;
 @Table(name = "accounts")
 @DynamicInsert //ignore null-value attributes
 @DynamicUpdate
-@SQLDelete(sql = "UPDATE accounts SET deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE accounts SET deleted = true WHERE account_id=?")
 @SQLRestriction("deleted = false")
 @Getter
 @Setter
@@ -32,13 +32,11 @@ public class Account extends BaseEntity {
     String id;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @JsonIgnore
+    @JsonIgnore @ToString.Exclude
     User user;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @JsonIgnore
+    @JsonIgnore @ToString.Exclude
     Seller seller;
 
     @Column(nullable = false, unique = true)

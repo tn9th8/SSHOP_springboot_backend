@@ -20,6 +20,5 @@ public class ApiResponse <T> {
     boolean success;
     int code;
     String error;
-    Object meta;
-    T data;
+    T result;
 }

@@ -9,6 +9,9 @@ This is a RESTful API built with Spring Boot 3 for an e-commerce platform simila
 - Spring Boot 3.4.0 (Rest, Data JPA, Security)
 - PostgreSQL 16.6.0
 
+Java
+- int vs Integer: non-null or nullable
+
 Spring Data JPA
 - Methods
 - Query
@@ -25,6 +28,11 @@ Spring Security:
   - use the hasAuthority("ROLE_ADMIN") or hasRole("ADMIN") methods at Security Filter Chain tier
   - use the PreAuthority, PostAuthority annotation at Methods of Service tier
 - Handle exception at Security Filter Chain tier
+
+Spring Validate:
+- @NotNull: not null
+- @NotEmpty: not null, length/size is greater than 0
+- @NotBlank: not null, the trimmed length/size is greater than 0
 
 ## Project
 - Yaml: is a config file which includes environment variables
@@ -68,6 +76,9 @@ Some popular shortcuts of IntelliJ IDEA
 - Find a file: Ctrl + Shift + N
 - Find anything: Double Shift
 - Clear redundant imports: Ctrl + Alt + O
+- Replace all on a file: Ctrl + R
+- Replace all on whole project: Ctrl + Shift + R
+- Exit the insert mode in git: Ctrl + C
 
 ## Bugs
 - Account-Access module:

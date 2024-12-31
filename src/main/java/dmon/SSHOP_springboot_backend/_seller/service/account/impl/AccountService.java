@@ -8,7 +8,7 @@ import dmon.SSHOP_springboot_backend.base.AppException;
 import dmon.SSHOP_springboot_backend.base.ExceptionCode;
 
 import dmon.SSHOP_springboot_backend.mapper.account.Seller_IAccountMapper;
-import dmon.SSHOP_springboot_backend.repository.account.Seller_IAccountRepository;
+import dmon.SSHOP_springboot_backend._repository.account.Seller_IAccountRepository;
 import dmon.SSHOP_springboot_backend.enums.RoleEnum;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

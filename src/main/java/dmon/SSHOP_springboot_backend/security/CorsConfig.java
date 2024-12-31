@@ -22,7 +22,10 @@ public class CorsConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.setAllowedOrigins(
-                Arrays.asList("http://localhost:3066", "http://localhost:4173", "http://localhost:5173"));
+                Arrays.asList(
+                        "http://localhost:3044", "http://localhost:3066", "http://localhost:3088",
+                        "http://localhost:3144", "http://localhost:3166", "http://localhost:3188"
+                ));
 
         corsConfig.setAllowedMethods(
                 Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
