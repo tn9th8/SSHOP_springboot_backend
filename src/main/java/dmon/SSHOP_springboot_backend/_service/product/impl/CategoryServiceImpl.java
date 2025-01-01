@@ -11,7 +11,7 @@ import dmon.SSHOP_springboot_backend.dto.request.product.CategoryUpdateRequest;
 import dmon.SSHOP_springboot_backend.dto.response.product.CategoryResponse;
 import dmon.SSHOP_springboot_backend.entity.product.Category;
 import dmon.SSHOP_springboot_backend.mapper.product.ICategoryMapper;
-import dmon.SSHOP_springboot_backend.utils.AppUtils;
+import dmon.SSHOP_springboot_backend.utils.SystemUtils;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements ICategoryService {
         Category cateUpdated = this.cateRepo.findById(cateId)
                 .orElseThrow(()-> new AppException(ExceptionCode.CATEGORY__NOT_FOUND));
 
-        AppUtils.ignoreNull(cateUpdated, cateRequested);
+        SystemUtils.ignoreNull(cateUpdated, cateRequested);
 
         Category category = this.cateRepo.save(cateUpdated);
         return this.cateMapper.toResponse(category);
@@ -64,7 +64,7 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public PageResponse<ICategoryProjection> findAll(Pageable pageable) {
         Page<ICategoryProjection> catePage = this.cateRepo.findAllProjectedBy(pageable);
-        return AppUtils.toPageResponse(catePage);
+        return SystemUtils.toPageResponse(catePage);
     }
 
     @Override

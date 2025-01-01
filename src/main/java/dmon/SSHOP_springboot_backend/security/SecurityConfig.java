@@ -26,16 +26,13 @@ import javax.crypto.spec.SecretKeySpec;
 public class SecurityConfig {
     private final String[] PUBLIC_GET_ENDPOINTS = {
             "/api/v1/category/tree",
+            "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
             "/test/**"
     };
     private final String[] PUBLIC_POST_ENDPOINTS = {
             "admin/api/v1/access/login",
             "seller/api/v1/access/login",
             "seller/api/v1/account/create",
-    };
-
-    private final String[] PUBLIC_ENDPOINTS = {
-            "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
     };
 
     @Value("${jwt.secretKey}")
@@ -45,7 +42,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(request ->
                 request
-                        .requestMatchers(PUBLIC_ENDPOINTS).permitAll()
                         .requestMatchers(HttpMethod.GET, PUBLIC_GET_ENDPOINTS).permitAll()
                         .requestMatchers(HttpMethod.POST, PUBLIC_POST_ENDPOINTS).permitAll()
                         .anyRequest().authenticated()

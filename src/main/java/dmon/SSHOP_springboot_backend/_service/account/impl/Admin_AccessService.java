@@ -65,7 +65,7 @@ public class Admin_AccessService implements Admin_IAccessService {
     @Override
     public void logout() {
         String accountId = SecurityUtil.getCurrentAccountLogin()
-                .orElseThrow(() -> new AppException(ExceptionCode.UNHANDLED_EXCEPTION));
+                .orElseThrow(() -> new AppException(ExceptionCode.SYSTEM__UNHANDLED_EXCEPTION));
         System.out.println(accountId);
         this.accountRepo.findById(accountId)
                 .orElseThrow(() -> new AppException(ExceptionCode.ACCOUNT__NOT_FOUND));

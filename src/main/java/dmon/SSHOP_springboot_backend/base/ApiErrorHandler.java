@@ -46,7 +46,7 @@ public class ApiErrorHandler {
      */
     @ExceptionHandler(value = RuntimeException.class)
     ResponseEntity<ApiResponse<Object>> handleException(RuntimeException exception) {
-        ExceptionCode exceptionCode = ExceptionCode.UNCATEGORIZED_EXCEPTION;
+        ExceptionCode exceptionCode = ExceptionCode.SYSTEM__UNHANDLED_EXCEPTION;
         return ResponseEntity
                 .status(exceptionCode.getStatus())
                 .body(ApiResponse.builder()
@@ -66,7 +66,7 @@ public class ApiErrorHandler {
     ResponseEntity<ApiResponse<Object>> handleException(MethodArgumentNotValidException exception) {
         String enumKey = exception.getFieldError().getDefaultMessage();
 
-        ExceptionCode exceptionCode = ExceptionCode.KEY_INVALID;
+        ExceptionCode exceptionCode = ExceptionCode.SYSTEM__ENUM_KEY_INVALID;
         try {
             exceptionCode = ExceptionCode.valueOf(enumKey);
         } catch (IllegalArgumentException ignored){ }

@@ -12,15 +12,15 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AccountCreateRequest {
-    @Size(message = "USERNAME_INVALID", min = 4)
+    @Size(message = "ACCOUNT__USERNAME_MIN", min = 4)
     String username;
 
-    @Pattern(message = "EMAIL_INVALID", regexp = "^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\\.[a-zA-Z]{2,}$")
+    @Pattern(message = "ACCOUNT__EMAIL_NOT_MATCHED", regexp = "^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\\.[a-zA-Z]{2,}$")
     String email;
 
-    @Pattern(message = "PHONE_INVALID", regexp = "^[0-9]{10}$")
+    @Pattern(message = "ACCOUNT__PHONE_NOT_MATCHED", regexp = "^[0-9]{10}$")
     String phone;
 
-    @Size(message = "PASSWORD_INVALID", min = 6)
+    @Size(message = "ACCOUNT__PASSWORD_MIN", min = 6)
     String password;
 }

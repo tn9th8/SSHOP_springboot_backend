@@ -34,11 +34,11 @@ public class AccountService {
     public AccountResponse createOne(AccountCreateRequest request) {
         //check that email, phone should be not existed
         if (this.accountRepo.existsByUsername(request.getEmail()))
-            throw new AppException(ExceptionCode.OBJECT_EXISTED, "username");
+            throw new AppException(ExceptionCode.ACCOUNT__USERNAME_UNIQUE);
         if (this.accountRepo.existsByEmail(request.getEmail()))
-            throw new AppException(ExceptionCode.OBJECT_EXISTED, "email");
+            throw new AppException(ExceptionCode.ACCOUNT__EMAIL_UNIQUE);
         if (this.accountRepo.existsByPhone(request.getPhone()))
-            throw new AppException(ExceptionCode.OBJECT_EXISTED, "phone");
+            throw new AppException(ExceptionCode.ACCOUNT__PHONE_UNIQUE);
 
         Account account = this.accountMapper.toEntity(request);
 
@@ -80,7 +80,7 @@ public class AccountService {
     @PostAuthorize("returnObject.accountId == authentication.name")
     public AccountResponse findOne(String accountId) {
         Account account = this.accountRepo.findById(accountId)
-                .orElseThrow(() -> new AppException(ExceptionCode.OBJECT_NOT_FOUND, "Account"));
+                .orElseThrow(() -> new AppException(ExceptionCode.ACCOUNT__NOT_FOUND));
         return this.accountMapper.toResponse(account);
     }
 
