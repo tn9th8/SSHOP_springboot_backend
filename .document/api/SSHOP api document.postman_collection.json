@@ -1,0 +1,662 @@
+{
+	"info": {
+		"_postman_id": "33ceb760-daed-4a94-b7ce-c901fb6f8182",
+		"name": "SSHOP api document",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39273924"
+	},
+	"item": [
+		{
+			"name": "Admin center",
+			"item": [
+				{
+					"name": "System group",
+					"item": [
+						{
+							"name": "Media: upload a file",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "daZYfqWif/BA3BA5-NguyenTrungNhan-71AC08425-GiaHanT1N2025.jpg"
+										},
+										{
+											"key": "folder",
+											"value": "product",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{admin}}{{media}}/upload"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account group",
+					"item": [
+						{
+							"name": "Access: log in",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/admin/api/v1/access/login"
+							},
+							"response": []
+						},
+						{
+							"name": "Access: log out",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzc2hvcC5kbW9uLmNvbSIsInN1YiI6IjU5ZWE2MDJlLWY2MDMtNDNiMy04M2U4LWFjMDQ5YTgwNjkyZCIsImV4cCI6MTc2OTY5NDEwMCwiaWF0IjoxNzM1MTM0MTAwLCJzY29wZSI6IkFETUlOIn0.TZMZrifoTXng2MlYs7Qwhp4zsqZfX7FMmfz1Ss3Xvv9p9MlbhhFGJGuzlxxgrqmD9DrUnKsXpJB_JQFs-9hMCA"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/admin/api/v1/access/logout"
+							},
+							"response": []
+						},
+						{
+							"name": "Account: create one",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user1\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"phone\": \"0985554601\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/api/v1/accounts/create"
+							},
+							"response": []
+						},
+						{
+							"name": "Account: update one",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"update@gmail.com\",\r\n    \"phone\": \"0985509091\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/api/v1/accounts/update/c47c9570-98d5-4fb0-ba29-9e09adf09d89"
+							},
+							"response": []
+						},
+						{
+							"name": "Account: list all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzUxMiJ9.eyJpsssc3MiOiJzc2hvcC5kbW9uLmNvbSIsInN1YiI6IjI4NDhhZjhmLWU4YmYtNDA3MC05OGRmLWFjOTBiZWFkMTgzNiIsImV4cCI6MTc2ODYzMjY0OSwiaWF0IjoxNzM0MDcyNjQ5LCJzY29wZSI6IlVTRVIifQ.FRDOFlAjDAsbdM0WRZm1R_AuomATrkJ2XiJeG5SEF5rNRZlPViKH4oL9czUV2KQHJhG1Z5pK9pwbvwd0YJM2Vg"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/api/v1/accounts/list"
+							},
+							"response": []
+						},
+						{
+							"name": "Account: find one",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzc2hvcC5kbW9uLmNvbSIsInN1YiI6IjI4NDhhZjhmLWU4YmYtNDA3MC05OGRmLWFjOTBiZWFkMTgzNiIsImV4cCI6MTc2ODYzMjY0OSwiaWF0IjoxNzM0MDcyNjQ5LCJzY29wZSI6IlVTRVIifQ.FRDOFlAjDAsbdM0WRZm1R_AuomATrkJ2XiJeG5SEF5rNRZlPViKH4oL9czUV2KQHJhG1Z5pK9pwbvwd0YJM2Vg"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8044/sshop/api/v1/accounts/find/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8044",
+									"path": [
+										"sshop",
+										"api",
+										"v1",
+										"accounts",
+										"find",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2848af8f-e8bf-4070-98df-ac90bead1836"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account: get my account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzc2hvcC5kbW9uLmNvbSIsInN1YiI6ImVjOWI2NWVhLTY3OTAtNDMwNC05OTlhLWJlY2QzZjgxNGNhZCIsImV4cCI6MTc2ODYzMjY0NSwiaWF0IjoxNzM0MDcyNjQ1LCJzY29wZSI6IkFETUlOIn0.1rxppDQwAaGHcC-Y6j5skTz_UymkbEu7cOt-wRy1WJgL6SwS3kIsoj3CXR0gtf8STMdQlOmqQPJuWQCrnhXlpw"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8044/sshop/api/v1/accounts/my"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": {
+							"token": ""
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Product group",
+					"item": [
+						{
+							"name": "Category: create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"position\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{admin}}{{category}}/create"
+							},
+							"response": []
+						},
+						{
+							"name": "Category: update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"photo\": \"string\",\r\n  \"position\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{admin}}{{category}}/update/e77d9154-4624-42d5-b390-2dd6020c6546"
+							},
+							"response": []
+						},
+						{
+							"name": "Category: list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{admin}}{{category}}/list",
+									"host": [
+										"{{admin}}{{category}}"
+									],
+									"path": [
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"description": "min = 1",
+											"disabled": true
+										},
+										{
+											"key": "size",
+											"value": "6",
+											"description": "min = 1",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "position",
+											"description": "sort by field",
+											"disabled": true
+										},
+										{
+											"key": "direct",
+											"value": "asc",
+											"description": "asc / desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category: find",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{admin}}{{category}}/find/:cateId",
+									"host": [
+										"{{admin}}{{category}}"
+									],
+									"path": [
+										"find",
+										":cateId"
+									],
+									"variable": [
+										{
+											"key": "cateId",
+											"value": "f71d9048-0012-47bc-b3a5-639c25152396"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category: delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{admin}}{{category}}/delete/:cateId",
+									"host": [
+										"{{admin}}{{category}}"
+									],
+									"path": [
+										"delete",
+										":cateId"
+									],
+									"variable": [
+										{
+											"key": "cateId",
+											"value": "d5b2f8e2-76d9-456f-95ef-86af6df9eab0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Product: list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{admin}}{{product}}/list"
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzc2hvcC5kbW9uLmNvbSIsInN1YiI6IjU5ZWE2MDJlLWY2MDMtNDNiMy04M2U4LWFjMDQ5YTgwNjkyZCIsImV4cCI6MTc3MDI5ODA5MSwiaWF0IjoxNzM1NzM4MDkxLCJzY29wZSI6IkFETUlOIn0.mEuRC6M93G4wsg7YC9kfxvbU4ujYhEAIKn87-YbbhDyZqMnpplJMPtYMXSavO1qHhjbkUSoy8eEcDwqGZXY2xQ"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Seller center",
+			"item": [
+				{
+					"name": "System group",
+					"item": [
+						{
+							"name": "Media: upload a file",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "daZYfqWif/BA3BA5-NguyenTrungNhan-71AC08425-GiaHanT1N2025.jpg"
+										},
+										{
+											"key": "folder",
+											"value": "product",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{seller}}{{media}}/upload"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account group",
+					"item": [
+						{
+							"name": "Access: log in",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/seller/api/v1/access/login"
+							},
+							"response": []
+						},
+						{
+							"name": "Access: log out",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/seller/api/v1/access/logout"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product group",
+					"item": [
+						{
+							"name": "Category: list as tree",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{seller}}{{category}}/tree"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Buyer center",
+			"item": [
+				{
+					"name": "System group",
+					"item": [
+						{
+							"name": "Media: upload a file",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "daZYfqWif/BA3BA5-NguyenTrungNhan-71AC08425-GiaHanT1N2025.jpg"
+										},
+										{
+											"key": "folder",
+											"value": "product",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{buyer}}{{media}}/upload"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account group",
+					"item": [
+						{
+							"name": "Access: log in",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8044/sshop/api/v1/access/login"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product group",
+					"item": [
+						{
+							"name": "Category: list as tree",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{buyer}}{{category}}/tree"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "admin",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "seller",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "buyer",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "account",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "access",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "category",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "product",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "media",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
