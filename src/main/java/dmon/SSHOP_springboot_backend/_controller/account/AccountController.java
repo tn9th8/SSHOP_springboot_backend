@@ -1,10 +1,10 @@
-package dmon.SSHOP_springboot_backend._seller.controller.account;
+package dmon.SSHOP_springboot_backend._controller.account;
 
-import dmon.SSHOP_springboot_backend._seller.dto.request.AccountCreateRequest;
-import dmon.SSHOP_springboot_backend._seller.dto.request.AccountUpdateRequest;
-import dmon.SSHOP_springboot_backend._seller.dto.response.AccountResponse;
+import dmon.SSHOP_springboot_backend.dto.request.account.AccountCreateRequest;
+import dmon.SSHOP_springboot_backend.dto.request.account.AccountUpdateRequest;
+import dmon.SSHOP_springboot_backend.dto.response.account.AccountResponse;
 import dmon.SSHOP_springboot_backend.entity.account.Account;
-import dmon.SSHOP_springboot_backend._seller.service.account.impl.AccountService;
+import dmon.SSHOP_springboot_backend._service.account.impl.AccountService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

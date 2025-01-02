@@ -20,8 +20,15 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
-        # dialect:  org.hibernate.dialect.PostgreSQLDialect
+        # dialect: org.hibernate.dialect.PostgreSQLDialect
         # jdbc.lob.non_contextual_creation: true #doestn't use sessions to persist effectively
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
 
-jwt:
-  secretKey: "1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij"
+sshop:
+  jwt:
+    secret-key: 1TjXchw5FloESb63Kc+DFhTARvpWL4jUGCwfGWxuG5SIf/1y/LgJxHnMqaF6A/ij
+  media:
+    uri: file:///D:/.Project/kltn/SSHOP_media

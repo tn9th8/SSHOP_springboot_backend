@@ -2,10 +2,10 @@ package dmon.SSHOP_springboot_backend._controller.product;
 
 import dmon.SSHOP_springboot_backend._repository.product.ICategoryProjection;
 import dmon.SSHOP_springboot_backend._service.product.ICategoryService;
-import dmon.SSHOP_springboot_backend.base.PageResponse;
-import dmon.SSHOP_springboot_backend.dto.request.product.CategoryCreateRequest;
-import dmon.SSHOP_springboot_backend.dto.request.product.CategoryUpdateRequest;
-import dmon.SSHOP_springboot_backend.dto.response.product.CategoryResponse;
+import dmon.SSHOP_springboot_backend.base.PageRes;
+import dmon.SSHOP_springboot_backend.dto.request.product.CategoryCreateReq;
+import dmon.SSHOP_springboot_backend.dto.request.product.CategoryUpdateReq;
+import dmon.SSHOP_springboot_backend.dto.response.product.CategoryRes;
 import dmon.SSHOP_springboot_backend.utils.SystemUtils;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
@@ -28,8 +28,8 @@ public class CategoryController {
 
         //CREATE//
         @PostMapping("/create")
-        public ResponseEntity<CategoryResponse> create(
-                @RequestBody @Valid CategoryCreateRequest cateDto)
+        public ResponseEntity<CategoryRes> create(
+                @RequestBody @Valid CategoryCreateReq cateDto)
         {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
@@ -38,8 +38,8 @@ public class CategoryController {
 
         //UPDATE//
         @PatchMapping("/update/{cateId}")
-        public ResponseEntity<CategoryResponse> update(
-                @RequestBody @Valid CategoryUpdateRequest cateDto,
+        public ResponseEntity<CategoryRes> update(
+                @RequestBody @Valid CategoryUpdateReq cateDto,
                 @PathVariable String cateId)
         {
             return  ResponseEntity
@@ -49,7 +49,7 @@ public class CategoryController {
 
         //LIST//
         @GetMapping("/list")
-        public ResponseEntity<PageResponse<ICategoryProjection>> findAll(
+        public ResponseEntity<PageRes<ICategoryProjection>> findAll(
                 @RequestParam(defaultValue = "1") int page,
                 @RequestParam(defaultValue = "4") int size,
                 @RequestParam(defaultValue = "position") String sort,
@@ -63,7 +63,7 @@ public class CategoryController {
 
         //FIND//
         @GetMapping("/find/{cateId}")
-        public ResponseEntity<CategoryResponse> find(
+        public ResponseEntity<CategoryRes> find(
                 @PathVariable String cateId
         ) {
             return ResponseEntity

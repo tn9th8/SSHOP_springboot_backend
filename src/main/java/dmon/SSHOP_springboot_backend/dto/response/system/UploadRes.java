@@ -1,10 +1,10 @@
-package dmon.SSHOP_springboot_backend.base;
+package dmon.SSHOP_springboot_backend.dto.response.system;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
+import java.time.Instant;
 
 @Builder
 @Getter
@@ -13,11 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PageResponse<T> {
-    private int totalPages;
-    private long totalElements;
-    private int page;
-    private int size;
-    private List<T> content;
-
+public class UploadRes {
+    String fileName;
+    Instant uploadedAt;
 }

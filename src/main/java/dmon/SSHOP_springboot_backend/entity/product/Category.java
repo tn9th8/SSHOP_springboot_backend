@@ -33,10 +33,6 @@ public class Category extends BaseEntity {
     @ToString.Exclude @JsonIgnore
     List<Product> products;
 
-    @OneToOne(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude @JsonIgnore
-    ProductTemplate productTemplate;
-
     @Column(length = 40, nullable = false, unique = true)
     String name;
 

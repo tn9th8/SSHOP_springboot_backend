@@ -37,21 +37,21 @@ public class Admin_AccessService implements Admin_IAccessService {
     Admin_IAccountRepository accountRepo;
 
     @NonFinal
-    @Value("${jwt.secretKey}")
+    @Value("${sshop.jwt.secret-key}")
     protected  String SECRET_KEY;
 
     //IMPLEMENT//
     @Override
     public Admin_AccessResponse login(Admin_LoginRequest request) {
         Account account = this.accountRepo.findByUsername(request.getUsername())
-                .orElseThrow(() -> new AppException(ExceptionCode.SECURITY__LOGIN_FAILED));
+                .orElseThrow(() -> new AppException(ExceptionCode.ACCESS__LOGIN_FAILED));
 
         if (!account.getRoles().contains(RoleEnum.ADMIN.toString()))
-            throw new AppException(ExceptionCode.SECURITY__LOGIN_FAILED);
+            throw new AppException(ExceptionCode.ACCESS__LOGIN_FAILED);
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
         if (!passwordEncoder.matches(request.getPassword(), account.getPassword()))
-            throw new AppException(ExceptionCode.SECURITY__LOGIN_FAILED);
+            throw new AppException(ExceptionCode.ACCESS__LOGIN_FAILED);
 
         var token = generateToken(account);
 

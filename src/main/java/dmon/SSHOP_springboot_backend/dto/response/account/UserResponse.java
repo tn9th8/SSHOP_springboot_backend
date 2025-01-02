@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend._seller.dto.response;
+package dmon.SSHOP_springboot_backend.dto.response.account;
 
 import dmon.SSHOP_springboot_backend.enums.GenderEnum;
 import lombok.*;

@@ -5,10 +5,10 @@ import dmon.SSHOP_springboot_backend._repository.product.ICategoryRepository;
 import dmon.SSHOP_springboot_backend._service.product.ICategoryService;
 import dmon.SSHOP_springboot_backend.base.AppException;
 import dmon.SSHOP_springboot_backend.base.ExceptionCode;
-import dmon.SSHOP_springboot_backend.base.PageResponse;
-import dmon.SSHOP_springboot_backend.dto.request.product.CategoryCreateRequest;
-import dmon.SSHOP_springboot_backend.dto.request.product.CategoryUpdateRequest;
-import dmon.SSHOP_springboot_backend.dto.response.product.CategoryResponse;
+import dmon.SSHOP_springboot_backend.base.PageRes;
+import dmon.SSHOP_springboot_backend.dto.request.product.CategoryCreateReq;
+import dmon.SSHOP_springboot_backend.dto.request.product.CategoryUpdateReq;
+import dmon.SSHOP_springboot_backend.dto.response.product.CategoryRes;
 import dmon.SSHOP_springboot_backend.entity.product.Category;
 import dmon.SSHOP_springboot_backend.mapper.product.ICategoryMapper;
 import dmon.SSHOP_springboot_backend.utils.SystemUtils;
@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     //CREATE//
     @Override
-    public CategoryResponse create(CategoryCreateRequest payload) {
+    public CategoryRes create(CategoryCreateReq payload) {
         if (this.cateRepo.findFirstByName(payload.getName()).isPresent())
             throw new AppException(ExceptionCode.CATEGORY__NAME_UNIQUE);
 
@@ -44,7 +44,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     //UPDATE//
     @Override
-    public CategoryResponse update(CategoryUpdateRequest cateDto, String cateId) {
+    public CategoryRes update(CategoryUpdateReq cateDto, String cateId) {
         if (this.cateRepo.findFirstByNameAndIdNot(cateDto.getName(), cateId).isPresent())
             throw new AppException(ExceptionCode.CATEGORY__NAME_UNIQUE);
 
@@ -62,7 +62,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     //LIST//
     @Override
-    public PageResponse<ICategoryProjection> findAll(Pageable pageable) {
+    public PageRes<ICategoryProjection> findAll(Pageable pageable) {
         Page<ICategoryProjection> catePage = this.cateRepo.findAllProjectedBy(pageable);
         return SystemUtils.toPageResponse(catePage);
     }
@@ -76,7 +76,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     //FIND//
     @Override
-    public CategoryResponse find(String cateId) {
+    public CategoryRes find(String cateId) {
         Category cateFound = this.cateRepo.findById(cateId)
                 .orElseThrow(()-> new AppException(ExceptionCode.CATEGORY__NOT_FOUND));
 

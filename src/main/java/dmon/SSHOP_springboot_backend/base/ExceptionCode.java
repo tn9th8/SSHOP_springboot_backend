@@ -13,6 +13,12 @@ public enum ExceptionCode {
     //SYSTEM EXCEPTION 1000+//
     SYSTEM__UNHANDLED_EXCEPTION(1000, "An unhandled error", HttpStatus.INTERNAL_SERVER_ERROR),
     SYSTEM__ENUM_KEY_INVALID(1001, "Enum key is invalid", HttpStatus.INTERNAL_SERVER_ERROR),
+    SYSTEM__FILE_EMPTY(1002, "File is empty. Please upload a file", HttpStatus.BAD_REQUEST),
+    SYSTEM__FILE_OUT_EXTENSIONS(1003, "File extensions should be pdf, jpg, jpeg, png, doc or docx", HttpStatus.BAD_REQUEST),
+    SYSTEM__FILE_CREATE_DIRECTORY(1004, "An error occurred while creating a media directory.", HttpStatus.INTERNAL_SERVER_ERROR),
+    SYSTEM__FILE_CREATE_FOLDER(1005, "An error occurred while creating a media folder.", HttpStatus.INTERNAL_SERVER_ERROR),
+    SYSTEM__FILE_CREATE_PATH(1006, "An error occurred while creating a file path.", HttpStatus.INTERNAL_SERVER_ERROR),
+    SYSTEM__FILE_STREAM(1007, "An error occurred while stream the file.", HttpStatus.INTERNAL_SERVER_ERROR),
     //ACCOUNT 1100+//
     ACCOUNT__USERNAME_MIN(1100, "Username should be at least 4 characters", HttpStatus.BAD_REQUEST),
     ACCOUNT__PASSWORD_MIN(1101, "Password should be at least 6 characters", HttpStatus.BAD_REQUEST),
@@ -22,11 +28,11 @@ public enum ExceptionCode {
     ACCOUNT__USERNAME_UNIQUE(1504, "Username already existed. Please choose a different one.", HttpStatus.BAD_REQUEST),
     ACCOUNT__EMAIL_UNIQUE(1505, "Email already existed. Please choose a different one.", HttpStatus.BAD_REQUEST),
     ACCOUNT__PHONE_UNIQUE(1506, "Phone already existed. Please choose a different one.", HttpStatus.BAD_REQUEST),
-    //SECURITY-ACCESS 1200+//
-    SECURITY__UNAUTHENTICATED(1200, "You are not allowed to access this resource.", HttpStatus.UNAUTHORIZED),
-    SECURITY__UNAUTHORIZED(1201, "You are not permitted to access this resource.", HttpStatus.FORBIDDEN),
-    SECURITY__LOGIN_FAILED(1202, "Username or password doesn't match any our records. Try again.", HttpStatus.BAD_REQUEST),
-    SECURITY__NOT_SELLER(1203, "Account is not registered as a seller. Please sign up.", HttpStatus.BAD_REQUEST),
+    //ACCESS 1200+//
+    ACCESS__UNAUTHENTICATED(1200, "You are not allowed to access this resource.", HttpStatus.UNAUTHORIZED),
+    ACCESS__UNAUTHORIZED(1201, "You are not permitted to access this resource.", HttpStatus.FORBIDDEN),
+    ACCESS__LOGIN_FAILED(1202, "Username or password doesn't match any our records. Try again.", HttpStatus.BAD_REQUEST),
+    ACCESS__NOT_SELLER(1203, "Account is not registered as a seller. Please sign up.", HttpStatus.BAD_REQUEST),
     //USER 1300+//
     //SELLER 1400+//
 

@@ -37,21 +37,21 @@ public class Seller_AccessService implements Seller_IAccessService {
     Seller_IAccountRepository accountRepo;
 
     @NonFinal
-    @Value("${jwt.secretKey}")
+    @Value("${sshop.jwt.secret-key}")
     protected  String SECRET_KEY;
 
     //IMPLEMENT//
     @Override
     public Seller_AccessResponse login(Seller_LoginRequest request) {
         Account account = this.accountRepo.findByUsername(request.getUsername())
-                .orElseThrow(() -> new AppException(ExceptionCode.SECURITY__LOGIN_FAILED));
+                .orElseThrow(() -> new AppException(ExceptionCode.ACCESS__LOGIN_FAILED));
 
         if (!account.getRoles().contains(RoleEnum.SELLER.toString()))
-            throw new AppException(ExceptionCode.SECURITY__NOT_SELLER);
+            throw new AppException(ExceptionCode.ACCESS__NOT_SELLER);
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
         if (!passwordEncoder.matches(request.getPassword(), account.getPassword()))
-            throw new AppException(ExceptionCode.SECURITY__LOGIN_FAILED);
+            throw new AppException(ExceptionCode.ACCESS__LOGIN_FAILED);
 
         var token = generateToken(account);
 

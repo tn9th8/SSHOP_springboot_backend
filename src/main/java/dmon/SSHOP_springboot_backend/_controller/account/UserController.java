@@ -1,7 +1,7 @@
-package dmon.SSHOP_springboot_backend._seller.controller.account;
+package dmon.SSHOP_springboot_backend._controller.account;
 
-import dmon.SSHOP_springboot_backend._seller.dto.request.UserCreateRequest;
-import dmon.SSHOP_springboot_backend._seller.dto.response.UserResponse;
+import dmon.SSHOP_springboot_backend.dto.request.account.UserCreateRequest;
+import dmon.SSHOP_springboot_backend.dto.response.account.UserResponse;
 import dmon.SSHOP_springboot_backend.utils.annotation.ApiMessage;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

@@ -31,14 +31,6 @@ public class Account extends BaseEntity {
     @Column(name = "accountId", updatable = false, nullable = false)
     String id;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore @ToString.Exclude
-    User user;
-
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore @ToString.Exclude
-    Seller seller;
-
     @Column(nullable = false, unique = true)
     String username;
 

@@ -1,8 +1,8 @@
 package dmon.SSHOP_springboot_backend.mapper.account;
 
-import dmon.SSHOP_springboot_backend._seller.dto.request.AccountCreateRequest;
-import dmon.SSHOP_springboot_backend._seller.dto.request.AccountUpdateRequest;
-import dmon.SSHOP_springboot_backend._seller.dto.response.AccountResponse;
+import dmon.SSHOP_springboot_backend.dto.request.account.AccountCreateRequest;
+import dmon.SSHOP_springboot_backend.dto.request.account.AccountUpdateRequest;
+import dmon.SSHOP_springboot_backend.dto.response.account.AccountResponse;
 import dmon.SSHOP_springboot_backend.entity.account.Account;
 import org.mapstruct.Mapper;
 

@@ -10,10 +10,8 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import java.util.Map;
-
 @ControllerAdvice
-public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
+public class ApiResHandler implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         return true;
@@ -40,7 +38,7 @@ public class ApiResponseHandler implements ResponseBodyAdvice<Object> {
         if (path.startsWith("/sshop/v3/api-docs") || path.startsWith("/sshop/swagger-ui"))
             return body;
         //case: success
-        return ApiResponse.builder()
+        return ApiRes.builder()
                 .success(true)
                 .code(1)
                 .result(body)

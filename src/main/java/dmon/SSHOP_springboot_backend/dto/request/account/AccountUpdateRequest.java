@@ -1,4 +1,4 @@
-package dmon.SSHOP_springboot_backend._seller.dto.request;
+package dmon.SSHOP_springboot_backend.dto.request.account;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

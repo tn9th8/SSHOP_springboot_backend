@@ -1,7 +1,6 @@
 package dmon.SSHOP_springboot_backend.dto.request.product;
 
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -11,8 +10,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryCreateRequest {
-    @NotEmpty(message = "CATEGORY__NAME_NOT_EMPTY")
+public class CategoryUpdateReq {
     @Size(message = "CATEGORY__NAME_OUT_SIZE", min = 2, max = 40)
     String name;
 

@@ -1,6 +1,6 @@
 package dmon.SSHOP_springboot_backend.utils;
 
-import dmon.SSHOP_springboot_backend.base.PageResponse;
+import dmon.SSHOP_springboot_backend.base.PageRes;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,8 +16,8 @@ public class SystemUtils {
      * @param pageJpa: Page of Jpa
      * @return PageResponse
      */
-    public static <T> PageResponse<T> toPageResponse(Page<T> pageJpa) {
-        return PageResponse.<T>builder()
+    public static <T> PageRes<T> toPageResponse(Page<T> pageJpa) {
+        return PageRes.<T>builder()
                 .totalPages(pageJpa.getTotalPages())
                 .totalElements(pageJpa.getTotalElements())
                 .page(pageJpa.getNumber() + 1) //Page of client starts 1. But PageNumber of Jpa starts from 0

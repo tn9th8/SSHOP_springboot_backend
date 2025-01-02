@@ -25,17 +25,20 @@ import javax.crypto.spec.SecretKeySpec;
 @EnableMethodSecurity
 public class SecurityConfig {
     private final String[] PUBLIC_GET_ENDPOINTS = {
-            "/api/v1/category/tree",
-            "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
-            "/test/**"
+            "/test/**",
+            "/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**",
+            "/media/**",
+            "/api/v1/category/**",
+
     };
     private final String[] PUBLIC_POST_ENDPOINTS = {
             "admin/api/v1/access/login",
             "seller/api/v1/access/login",
             "seller/api/v1/account/create",
+            "/api/v1/media/**",
     };
 
-    @Value("${jwt.secretKey}")
+    @Value("${sshop.jwt.secret-key}")
     private String SECRET_KEY;
 
     @Bean
